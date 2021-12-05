@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SolarCoffee.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<SolarDbContext>(options => {
+    options.EnableDetailedErrors();
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Solar.dev"));
+});
 
 var app = builder.Build();
 
