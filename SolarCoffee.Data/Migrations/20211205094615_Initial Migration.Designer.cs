@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SolarCoffee.Data;
+using SolarCoffee.Repository;
 
 #nullable disable
 
 namespace SolarCoffee.Data.Migrations
 {
-    [DbContext(typeof(SolarDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211205094615_Initial Migration")]
     partial class InitialMigration
     {

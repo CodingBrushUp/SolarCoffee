@@ -1,18 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SolarCoffee.Common.Utilities;
 using SolarCoffee.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SolarCoffee.Data
+namespace SolarCoffee.Repository
 {
-    public class SolarDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public SolarDbContext() { }
-        public SolarDbContext(DbContextOptions options) : base(options) { }
+        public ApplicationDbContext() { }
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
         // public virtual DbSet<Customer> Customers { get; set; }
         // public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
@@ -36,11 +32,11 @@ namespace SolarCoffee.Data
 
             foreach (var entityEntry in entries)
             {
-                ((BaseEntity)entityEntry.Entity).UpdatedOn = DateTime.Now;
+                ((BaseEntity)entityEntry.Entity).UpdatedDate = DateTime.Now;
 
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((BaseEntity)entityEntry.Entity).CreatedOn = DateTime.Now;
+                    ((BaseEntity)entityEntry.Entity).CreatedDate = DateTime.Now;
                 }
             }
             return base.SaveChanges();

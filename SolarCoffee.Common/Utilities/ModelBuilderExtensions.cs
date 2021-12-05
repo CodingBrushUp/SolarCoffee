@@ -1,10 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace SolarCoffee.Data
+namespace SolarCoffee.Common.Utilities
 {
     public static class ModelBuilderExtensions
     {
