@@ -34,3 +34,7 @@ we'll build afeature-completeweb application for a coffee roaster called Solar C
     Finding and fixing bugs
 
     Web application architecture
+    
+    Use Generic Paging
+    
+    Using Reflection to Identify and create DbSets
